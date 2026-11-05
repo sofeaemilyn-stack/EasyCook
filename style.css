@@ -1,0 +1,78 @@
+/* style.css - styles for all pages */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; background: #f7f3e8; color: #1b2420; line-height: 1.5; }
+h1, h2, h3 { font-family: Georgia, serif; margin: 0 0 8px; }
+h2 { font-size: 1.3rem; }
+h3 { font-size: 1.05rem; margin-top: 16px; }
+
+/* Top bar and navigation */
+.topbar { display: flex; align-items: center; justify-content: space-between; background: #8e2839; color: white; padding: 12px 24px; }
+.topbar h1 { margin: 0; font-size: 1.6rem; }
+nav a { color: #cfe3da; text-decoration: none; padding: 8px 14px; border-radius: 6px; margin-left: 6px; }
+nav a:hover { background: #f7f3e8a2; }
+nav a.active { background: #a0a088; color: #1b2420; font-weight: bold; }
+
+/* Layout: left column and right column */
+.layout { display: grid; grid-template-columns: 340px 1fr; gap: 20px; padding: 20px 24px; max-width: 1300px; margin: 0 auto; }
+.panel { background: white; border: 1px solid #cddcd4; border-radius: 10px; padding: 18px; }
+
+/* Form controls */
+label { display: block; font-weight: bold; margin: 12px 0 4px; font-size: 0.92rem; }
+label.inline { display: inline; margin-right: 6px; }
+input, select, textarea { width: 100%; padding: 8px 10px; border: 1px solid #c0582f; border-radius: 6px; font-size: 1rem; font-family: inherit; }
+button { background: #652914; color: white; border: 0; padding: 9px 16px; border-radius: 6px; font-size: 1rem; cursor: pointer; }
+button:hover { background: #c14829; }
+button.wide { width: 100%; margin-top: 14px; }
+button.secondary { background: #e3ece7; color: #1f4a3d; }
+button.danger { background: #c0392b; }
+button.link { background: none; color: #1f4a3d; text-decoration: underline; padding: 4px 0; }
+.row { display: flex; gap: 8px; align-items: flex-end; flex-wrap: wrap; }
+.row input, .row select { flex: 1; min-width: 120px; }
+.row.spread { justify-content: space-between; align-items: center; }
+.row.spread select { width: auto; }
+hr { border: 0; border-top: 1px solid #cddcd4; margin: 20px 0; }
+.hint { color: #55665e; font-size: 0.9rem; margin: 4px 0; }
+
+/* Message boxes */
+.msg { padding: 10px 12px; border-radius: 6px; margin: 12px 0; border-left: 5px solid; }
+.msg.success { background: #e2f4e8; border-color: #2e8b57; }
+.msg.error { background: #fbe6e3; border-color: #c0392b; }
+.msg.info { background: #fff4d6; border-color: #e9a820; }
+
+/* Recipe cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; margin-top: 10px; }
+.card { background: #f6faf8; border: 1px solid #cddcd4; border-radius: 8px; overflow: hidden; cursor: pointer; }
+.card:hover { border-color: #e9a820; }
+.card img { width: 100%; display: block; }
+.card h3 { font-size: 0.95rem; margin: 8px; }
+
+/* Recipe details */
+.detail-head { display: flex; gap: 18px; flex-wrap: wrap; }
+.detail-head img { width: 220px; border-radius: 8px; }
+.instructions { white-space: pre-line; }
+#calcResult { background: #f6faf8; padding: 4px 12px; border-radius: 6px; }
+
+/* Meal plan list */
+.plan-item { display: flex; gap: 12px; align-items: center; border: 1px solid #cddcd4; border-radius: 8px; padding: 10px; margin-top: 10px; }
+.plan-info { flex: 1; }
+.plan-info h3 { margin: 0; }
+.plan-info p { margin: 2px 0; }
+.plan-actions { display: flex; gap: 6px; }
+.sug-item { border-left: 4px solid #e9a820; padding: 4px 10px; margin-top: 8px; background: #fffaf0; }
+
+/* Recipe pop-up */
+#detail {
+  position: fixed;
+  top: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  max-width: 92vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 100;
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.55); /* dark background behind the pop-up */
+}

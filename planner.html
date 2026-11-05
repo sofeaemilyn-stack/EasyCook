@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EasyCook - My Meal Plan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top bar with navigation -->
+  <header class="topbar">
+    <h1>EasyCook</h1>
+    <nav>
+      <a href="index.html">Recipe Finder</a>
+      <a href="planner.html" class="active">My Meal Plan</a>
+    </nav>
+  </header>
+
+  <main class="layout">
+
+    <!-- LEFT SIDE: form to add or edit a meal -->
+    <section class="panel">
+      <h2 id="formTitle">Add a meal</h2>
+      <p class="hint">Add a meal here, or from the Recipe Finder page.</p>
+
+      <form id="planForm">
+        <input type="hidden" id="planId">
+
+        <label for="mealName">Meal name</label>
+        <input id="mealName" type="text" placeholder="e.g. Chicken curry">
+
+        <label for="mealDay">Day</label>
+        <select id="mealDay">
+          <option>Monday</option>
+          <option>Tuesday</option>
+          <option>Wednesday</option>
+          <option>Thursday</option>
+          <option>Friday</option>
+          <option>Saturday</option>
+          <option>Sunday</option>
+        </select>
+
+        <label for="mealType">Meal time</label>
+        <select id="mealType">
+          <option>Breakfast</option>
+          <option>Lunch</option>
+          <option>Dinner</option>
+          <option>Snack</option>
+        </select>
+
+        <label for="mealServings">Servings (1 to 50)</label>
+        <input id="mealServings" type="number" value="4">
+
+        <label for="mealNotes">Notes (optional)</label>
+        <textarea id="mealNotes" rows="3" placeholder="e.g. buy coconut milk"></textarea>
+
+        <button type="submit" id="saveBtn" class="wide">Save meal</button>
+        <button type="button" id="cancelBtn" class="wide secondary" hidden>Cancel edit</button>
+      </form>
+
+      <div id="formMsg" class="msg" hidden></div>
+    </section>
+
+    <!-- RIGHT SIDE: saved meals and suggestion history -->
+    <section class="panel results-panel">
+      <div class="row spread">
+        <h2>Saved meals</h2>
+        <div>
+          <label for="filterDay" class="inline">Show</label>
+          <select id="filterDay">
+            <option value="All">All days</option>
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+            <option>Sunday</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="listMsg" class="msg" hidden></div>
+      <div id="planList"></div>
+
+      <hr>
+
+      <div class="row spread">
+        <h2>Suggestion history</h2>
+        <button id="clearSugBtn" class="secondary">Clear history</button>
+      </div>
+      <div id="sugList"></div>
+    </section>
+
+  </main>
+
+  <script src="common.js"></script>
+  <script src="planner.js"></script>
+</body>
+</html>
