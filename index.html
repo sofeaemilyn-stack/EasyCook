@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EasyCook - Recipe Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top bar with navigation -->
+  <header class="topbar">
+    <h1>𐂐EasyCook</h1>
+    <nav>
+      <a href="index.html" class="active">Recipe Finder</a>
+      <a href="planner.html">My Meal Plan</a>
+    </nav>
+  </header>
+
+  <main class="layout">
+
+    <!-- LEFT SIDE: search and suggestion -->
+    <section class="panel">
+      <h2>Find a recipe</h2>
+
+      <label for="searchInput">Search by recipe name</label>
+      <div class="row">
+        <input id="searchInput" type="text" placeholder="e.g. chicken">
+        <button id="searchBtn">Search</button>
+      </div>
+
+      <label for="categorySelect">Browse by category</label>
+      <select id="categorySelect">
+        <option value="">Loading...</option>
+      </select>
+
+      <label for="ingredientInput">Ingredient you have</label>
+      <div class="row">
+        <input id="ingredientInput" type="text" placeholder="e.g. chicken breast">
+        <button id="ingredientBtn">Filter</button>
+      </div>
+
+      <hr>
+
+      <h2>Suggest a meal for me</h2>
+      <p class="hint">Choose the meal time and your diet.</p>
+
+      <label for="sugTime">Meal time</label>
+      <select id="sugTime">
+        <option value="breakfast">Breakfast</option>
+        <option value="lunch">Lunch</option>
+        <option value="dinner">Dinner</option>
+        <option value="snack">Snack</option>
+      </select>
+
+      <label for="sugDiet">Diet</label>
+      <select id="sugDiet">
+        <option value="any">No preference</option>
+        <option value="vegetarian">Vegetarian</option>
+        <option value="seafood">Seafood</option>
+      </select>
+
+      <label for="sugIng">Ingredient on hand (optional)</label>
+      <input id="sugIng" type="text" placeholder="e.g. salmon">
+
+      <button id="sugBtn" class="wide">Suggest a recipe</button>
+      <div id="sugResult" class="msg" hidden></div>
+    </section>
+
+    <!-- RIGHT SIDE: results and recipe details -->
+    <section class="panel results-panel">
+      <div id="status" class="msg" hidden></div>
+
+      <h2 id="resultsTitle">Results</h2>
+      <div id="results" class="cards">
+        <p class="hint">Search or pick a category to see recipes.</p>
+      </div>
+
+      <!-- Recipe details  -->
+      <div id="detail" hidden>
+        <button id="backBtn" class="link">Close</button>
+
+        <div class="detail-head">
+          <img id="mealImage" src="" alt="Recipe photo">
+          <div>
+            <h2 id="mealName"></h2>
+            <p><strong>Category:</strong> <span id="mealCategory"></span></p>
+            <p><strong>Cuisine:</strong> <span id="mealArea"></span></p>
+            <p><strong>Number of ingredients:</strong> <span id="mealCount"></span></p>
+          </div>
+        </div>
+
+        <h3>Servings and cost calculator</h3>
+        <p class="hint">The original recipe serves 4 people.</p>
+        <div class="row">
+          <div>
+            <label for="servInput">Servings needed</label>
+            <input id="servInput" type="number" value="4">
+          </div>
+          <div>
+            <label for="costInput">Cost per ingredient (RM)</label>
+            <input id="costInput" type="number" value="3">
+          </div>
+          <button id="calcBtn">Calculate</button>
+        </div>
+        <div id="calcMsg" class="msg" hidden></div>
+        <div id="calcResult"></div>
+
+       <label for="unitSelect">Show ingredient amounts in</label>
+        <select id="unitSelect">
+          <option value="original">Original units</option>
+          <option value="grams">Grams (g)</option>
+          <option value="ounces">Ounces (oz)</option>
+        </select>
+
+        <h3>Ingredients</h3>
+        <ul id="ingList"></ul>
+
+        <h3>Instructions</h3>
+        <p id="instructions" class="instructions"></p>
+
+        <h3>Add to my meal plan</h3>
+        <div class="row">
+          <select id="planDay">
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+            <option>Sunday</option>
+          </select>
+          <select id="planType">
+            <option>Breakfast</option>
+            <option>Lunch</option>
+            <option>Dinner</option>
+            <option>Snack</option>
+          </select>
+          <button id="addPlanBtn">Add to plan</button>
+        </div>
+        <div id="planMsg" class="msg" hidden></div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
